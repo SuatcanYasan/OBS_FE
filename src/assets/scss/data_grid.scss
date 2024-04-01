@@ -1,0 +1,143 @@
+//Data Grid CSS
+.dx-loadindicator {
+  width: 48px;
+  height: 48px;
+}
+
+.dx-loadpanel-message {
+  margin-top: 8px !important;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.dx-datagrid-headers {
+  padding: 0.2rem;
+  background-color: #ebedf2 !important;
+  color: #02203EFF !important;
+  font-weight: 400 !important;
+  border-bottom: 1px solid #ebedf2;
+  border-bottom-style: hidden !important;
+}
+
+.dx-texteditor-input, .dx-dropdowneditor-icon {
+  background-color: #ebedf2 !important;
+  color: #02203EFF;
+  border-radius: 0;
+}
+
+.dx-texteditor-container{
+  background-color: #ebedf2 !important;
+
+}
+
+.dx-datagrid-header-panel {
+  border: none !important;
+}
+
+.main-header{
+    color: #ffffff !important;
+    text-decoration: underline !important;
+
+}
+
+
+.dx-selection {
+  color: white !important;
+  background-color: #02203e !important;
+  text-align: center !important;
+  margin: 0 !important;
+}
+
+
+.dx-navigate-button {
+  color: #02203e;
+}
+
+.dx-header-filter {
+  opacity: 0.6;
+  background-image: none;
+  color: black;
+  margin-left: 10px;
+}
+
+.objection-btn {
+  --bs-btn-padding-y: 0rem !important;
+  --bs-btn-padding-x: 0rem !important;
+  --bs-btn-font-size: 0rem !important;
+  --bs-btn-border-radius: 0.2rem !important;
+}
+
+.dx-datagrid-rowsview .dx-row {
+  border-bottom-width: 2px !important;
+  border-color: #b5b5b526 !important;
+  border-bottom-style: solid !important;
+
+}
+
+.dx-datagrid-headers .dx-datagrid-table .dx-row > td {
+  border-bottom-style: none !important;
+}
+
+.dx-row .center {
+  text-align: center !important;
+}
+
+.selected-data {
+  margin-top: 20px;
+  padding: 20px;
+  max-height: 500px;
+  overflow: auto;
+  background-color: rgba(191, 191, 191, 0.15);
+}
+
+.selected-data .caption {
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.Table-border {
+  border-left: 0;
+  border-right: 0;
+  border-top-color: rgba(221, 221, 221, 0.18) !important;
+  border-bottom-color: #dddddd !important;
+}
+
+.borderbottom {
+  border-bottom: solid !important;
+  border-color: #EFF2F7 !important;
+  border-bottom-width: 2px !important;
+  height: 4rem;
+  min-height: 4rem;
+  max-height: 4rem;
+  display: flex;
+  justify-items: flex-end;
+  align-items: flex-end;
+}
+
+.dataTables_filter,
+.dataTables_paginate {
+  float: right;
+}
+
+.dx-scrollable-scroll-content {
+  background-color:#1a65e2 !important;
+  border-radius: 2rem;
+}
+
+.dx-datagrid .dx-header-filter {
+  color: #1a65e2;
+}
+
+.dx-header-filter-empty{
+  color: #02203EFF !important;
+}
+
+.dx-datagrid-column-chooser.dx-datagrid-column-chooser-mode-select .dx-popup-content{
+  min-height: calc(100% - 20px) !important;
+}
+
+.dx-datagrid .dx-datagrid-headers .dx-datagrid-text-content {
+  white-space: normal !important;
+}

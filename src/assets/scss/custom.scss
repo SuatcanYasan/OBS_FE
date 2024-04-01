@@ -1,0 +1,172 @@
+//THEMES
+@import "src/assets/scss/buttons";
+@import "src/assets/scss/data_grid";
+@import "src/assets/scss/font";
+@import "src/assets/scss/backgrounds";
+///
+.mt-2 {
+  margin-top: 20px !important;
+}
+.ReactModal__Overlay {
+  z-index: 1001 !important;
+}
+.Language {
+  display: contents;
+}
+.pointer {
+  cursor: pointer !important;
+}
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+.avatar-mini {
+
+  height: 1.4rem;
+  width: 1.4rem;
+}
+.breadcrumbItem {
+  color: #8E8E8E;
+  font-size: 16px;
+}
+
+.breadcrumb-active {
+  color: #02203e !important;
+}
+
+.inverter-item {
+  padding: 15px;
+  box-shadow: 0 0.1rem 0.7rem rgba(173, 239, 209, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.inverter-item:hover {
+  transform: scale(1.05);
+}
+
+.inverter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inverter-content {
+  margin-top: 10px;
+}
+
+.blink {
+  animation: blink-animation 1.5s infinite;
+}
+
+@keyframes blink-animation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.border-green{
+  border: 2px solid #4DBD74;
+  border-radius: 1rem;
+}
+
+.carousel-height{
+    height: 180px
+}
+
+.signalEffect {
+  box-shadow: 0 0 0 #4DBD74;
+  animation: signalAnimation 2s infinite;
+  border-radius: 50%;
+}
+
+@keyframes signalAnimation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(77, 189, 116, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(77, 189, 116, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(77, 189, 116, 0);
+  }
+}
+
+// weather
+
+.weather {
+  border-radius: 6px;
+  box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 30%);
+  color: #02203e;
+  background-color: #ffffff;
+  margin: 20px auto 0 auto;
+  padding: 0 20px 20px 20px;
+}
+
+.top,
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.city {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.weather-description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1;
+  margin: 0;
+}
+
+.weather-icon {
+  width: 100px;
+}
+
+.temperature {
+  font-weight: 400;
+  font-size: 40px;
+  width: auto;
+  letter-spacing: -3px;
+  margin: 10px 0;
+}
+
+.details {
+  width: 100%;
+  padding-left: 20px;
+}
+
+.parameter-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.parameter-label {
+  text-align: left;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.parameter-value {
+  text-align: right;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.parameter-label.top {
+  border-bottom: 1px solid #fff;
+}

@@ -1,0 +1,61 @@
+.fcYNFc {
+  background-color: #ffffff !important;
+}
+
+//404 Page
+
+.error-page {
+  height: 100vh;
+
+  body {
+    background: white !important;
+  }
+}
+.bg-green {
+  background: #ADEFD1 !important;
+}
+
+// progress bar
+
+.capasity {
+  background: linear-gradient(to bottom, #ffffff 95%, #53a6ed 5%);
+
+}
+.power {
+  background: linear-gradient(to bottom, #ffffff 95%, #EEB456 5%);
+
+}
+.powerComp {
+  background: linear-gradient(to bottom, #ffffff 95%, #ff7070 5%);
+
+}
+
+.production {
+  background: linear-gradient(to bottom, #ffffff 95%, #50D123 5%);
+
+}
+
+.inverter-progress .progress-bar{
+    background-color: #4DBD74;
+}
+
+.carousel-indicators button{
+  background-color: red!important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #02203e !important;
+  color: white;
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27 fill=%27%23FFFFFF%27%3e%3cpath fill-rule=%27evenodd%27 d=%27M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z%27/%3e%3c/svg%3e") !important;
+}
+
+.bg-blue{
+  background-color: #02203e !important;
+}
+
+.bg-blue-gradient{
+  background: linear-gradient(to bottom, #ffffff 95%, #02203e 5%);
+}
