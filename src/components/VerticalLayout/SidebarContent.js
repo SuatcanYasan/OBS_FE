@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useCallback, useState } from "react"
-import { useHistory, useLocation, withRouter } from "react-router-dom"
+import React, {useCallback, useEffect, useRef} from "react"
+import {Link, useLocation, withRouter} from "react-router-dom"
 import PropTypes from "prop-types";
 
 
@@ -8,18 +8,13 @@ import SimpleBar from "simplebar-react";
 
 // MetisMenu
 import MetisMenu from "metismenujs";
-import { Link } from "react-router-dom";
 
 //i18n
-import { withTranslation } from "react-i18next";
-import Select from "react-select";
-import { getAreaOptionService } from "../../services/area/areaService"
+import {withTranslation} from "react-i18next";
 
 const SidebarContent = props => {
   const ref = useRef();
-  const navigate = useHistory()
   const {isVisible} = props;
-  const [areaOptions, setAreaOptions] = useState(null)
   const activateParentDropdown = useCallback((item) => {
     item.classList.add("active");
     const parent = item.parentElement;
@@ -122,9 +117,6 @@ const SidebarContent = props => {
 
   useEffect(() => {
     ref.current.recalculate();
-    getAreaOptionService().then((response) => {
-      setAreaOptions(response);
-    })
   }, []);
   useEffect(() => {
 
@@ -151,21 +143,6 @@ const SidebarContent = props => {
       <SimpleBar className="h-100" ref={ref}>
         <div id="sidebar-menu">
           <ul className="metismenu list-unstyled" id="side-menu">
-            <li className="menu-title">{props.t("Field Selection")} </li>
-            {isVisible && (
-              <Select
-                className="font-size-14 pe-3 ps-3 "
-                menuPlacement="auto"
-                menuPosition="fixed"
-                placeholder={props.t("Please Select Field")}
-                value={areaOptions?.find(option => option.value === path.search.split("=")[1])}
-                onChange={e => {
-                  navigate.push(`/field?id=${e.value}`)
-                }}
-                options={areaOptions ? areaOptions : []}
-              />
-            )}
-
             <li className="menu-title">{props.t("Main")} </li>
             <li>
               <Link to="/">
