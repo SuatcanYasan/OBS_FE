@@ -17,8 +17,7 @@ const Login = props => {
   return (
     <React.Fragment>
       {token ? navigate.push("/"):
-          <div>
-            <Container fluid className="p-0 bg-white">
+            <Container fluid className="p-0 bg-white bg-beykent-image" style={{height: "100vh"}}>
               <Row className="g-0">
                 <Col xl={12}>
                   <div className="auth-full-page-content p-md-5 p-4">
@@ -31,7 +30,6 @@ const Login = props => {
                 </Col>
               </Row>
             </Container>
-          </div>
       }
     </React.Fragment>
 

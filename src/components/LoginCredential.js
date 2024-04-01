@@ -1,14 +1,14 @@
-import React, { useState } from "react"
-import { Alert, Card, CardBody, Col, Container, Form, FormFeedback, Input, Label, Row } from "reactstrap"
-import { Link, withRouter } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
+import React from "react"
+import {Alert, Card, CardBody, Col, Container, Form, FormFeedback, Input, Label, Row} from "reactstrap"
+import {Link, withRouter} from "react-router-dom"
+import {useDispatch, useSelector} from "react-redux"
 import * as Yup from "yup"
-import { useFormik } from "formik"
-import { loginUser } from "store/actions"
+import {useFormik} from "formik"
+import {loginUser} from "store/actions"
 import PropTypes from "prop-types"
-import { withTranslation } from "react-i18next"
-import Logo from "../assets/images/renkli logo.png"
-import LogoMini from "../assets/images/logo.jpeg"
+import {withTranslation} from "react-i18next"
+import Logo from "../assets/images/logo-beyaz.png"
+import LogoMini from "../assets/images/logo-kucuk.png"
 
 const LoginCredential = (props) => {
 
@@ -38,37 +38,36 @@ const LoginCredential = (props) => {
                 <Container>
                     <Row className="justify-content-center">
                         <Col md={8} lg={6} xl={5}>
-                            <Card className="overflow-hidden">
-                                <div className="bg-green bg-soft">
+                            <Card className="overflow-hidden rounded-4">
+                                <div className="bg-beykent">
                                     <Row>
                                         <Col className="col-7">
-                                            <div className="p-4" style={{color: "#02203E"}}>
-                                                <h5 className="">{props.t("Welcome !")}</h5>
+                                            <div className="p-4 text-white" style={{color: "#02203E"}}>
+                                                <h5 className="text-white">{props.t("Welcome !")}</h5>
                                                 <p>{props.t("Sign in to continue to Beykent.")}</p>
                                             </div>
                                         </Col>
                                         <Col className="col-5 align-self-end">
-                                            <img src={Logo} alt="" className="img-fluid"/>
+                                            <img src={Logo} alt="" className="img-fluid opacity-50"/>
                                         </Col>
                                     </Row>
                                 </div>
                                 <CardBody className="pt-0">
-                                    <div>
-                                        <Link to="/" className="logo-light-element">
-                                            <div className="avatar-md profile-user-wid mb-4">
-                                                 <span className="avatar-title rounded-circle bg-light">
-                                                    <img
-                                                        src={LogoMini}
-                                                        alt=""
-                                                        className="rounded-circle"
-                                                        height="80"
-                                                        style={{borderBottom: "5px solid #94cab1"}}
-                                                    />
+                                    <div className="auth-logo">
+                                        <Link to="/" className="auth-logo-light">
+                                            <div className="avatar-md profile-user-wid">
+                                                <span className="avatar-title rounded-circle bg-beykent">
+                                                  <img
+                                                      src={LogoMini}
+                                                      alt=""
+                                                      className="rounded-circle"
+                                                      height="80"
+                                                  />
                                                 </span>
                                             </div>
                                         </Link>
                                     </div>
-                                    <div className="p-2">
+                                    <div className="p-5">
                                         <Form
                                             className="form-horizontal"
                                             onSubmit={(e) => {
@@ -80,10 +79,11 @@ const LoginCredential = (props) => {
                                             {error ? <Alert color="danger">{error}</Alert> : null}
 
                                             <div className="mb-3">
-                                                <Label className="form-label">{props.t("Email")}</Label>
+                                                <Label className="">{props.t("ÖĞRENCİ NUMARASI")}</Label>
                                                 <Input
                                                     name="email"
                                                     className="form-control"
+                                                    placeholder={props.t("Öğrenci Numarası")}
                                                     type="email"
                                                     onChange={validation.handleChange}
                                                     onBlur={validation.handleBlur}
@@ -102,6 +102,7 @@ const LoginCredential = (props) => {
                                                 <Label className="form-label">{props.t("Password")}</Label>
                                                 <Input
                                                     name="password"
+                                                    placeholder={props.t("******")}
                                                     value={validation.values.password || ""}
                                                     type="password"
                                                     onChange={validation.handleChange}
@@ -117,7 +118,7 @@ const LoginCredential = (props) => {
                                             </div>
                                             <div className="mt-3 d-grid">
                                                 <button
-                                                    className="btn btn-ranaliz btn-block"
+                                                    className="btn btn-dark-blue rounded-4"
                                                     type="submit"
                                                 >
                                                     {props.t("Login")}
@@ -127,7 +128,7 @@ const LoginCredential = (props) => {
                                     </div>
                                 </CardBody>
                             </Card>
-                            <div className="mt-5 text-center">
+                            <div className="mt-5 text-center text-white">
                                 <p>
                                     © {new Date().getFullYear()} Beykent. Crafted with{" "}
                                     <i className="mdi mdi-heart text-danger"/> by Beykent Team

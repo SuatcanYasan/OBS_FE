@@ -25,7 +25,7 @@ const Pages404 = (props) => {
                                         <h4 className="text-uppercase">{props.t("Sorry, page not found")}</h4>
                                         <div className="mt-5 text-center">
                                             <Link
-                                                className="btn btn-ranaliz"
+                                                className="btn btn-dark-blue"
                                                 to="/"
                                             >
                                                 {props.t("Back to Dashboard")}
