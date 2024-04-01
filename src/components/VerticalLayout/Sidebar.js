@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
-import Logo from "../../assets/images/renkli logo.png";
-import LogoMini from "../../assets/images/logo.jpeg";
+import Logo from "../../assets/images/logo-buyuk.png";
+import LogoMini from "../../assets/images/logo-kucuk.png";
 
 //i18n
 import { withTranslation } from "react-i18next";
