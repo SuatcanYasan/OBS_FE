@@ -8,13 +8,9 @@ import ProgressBar from "./components/progress_bar"
 import CustomBreadcrumbs from "../../components/breadcrumbs"
 import {getProgressBarData} from "../../services/dashboard/dashboardService"
 
-const AdminPanel = (props) => {
+const Dashboard = (props) => {
     const [progressBarData, setProgressBarData] = useState({})
-    useEffect(() => {
-        getProgressBarData().then((response) => {
-            setProgressBarData(response)
-        })
-    }, [])
+
     return (
       <React.Fragment>
         <div className="page-content">
@@ -27,7 +23,7 @@ const AdminPanel = (props) => {
                          style={{ backgroundColor: "#02203e", borderRadius: "6px 6px 0 0" }}>
                         <div className="font-size-18 fw-500">
                             <i className="mdi mdi-chart-bar me-3 text-white"></i>
-                           <span className="text-white">{props.t("Overview of All Fields")}</span>
+                           <span className="text-white">{props.t("Genel Özet")}</span>
                             <a>
                                 <i className="bx bx-info-circle font-size-20 pointer ms-1 text-white"
                                    style={{ verticalAlign: "middle" }} />
@@ -46,11 +42,11 @@ const AdminPanel = (props) => {
     </React.Fragment>)
 }
 
-AdminPanel.propTypes = {
+Dashboard.propTypes = {
     location: PropTypes.any,
     t: PropTypes.any,
 }
 
 export default withRouter(
-  withTranslation()(AdminPanel)
+  withTranslation()(Dashboard)
 )

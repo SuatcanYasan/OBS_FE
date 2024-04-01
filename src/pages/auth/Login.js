@@ -10,7 +10,7 @@ const Login = props => {
   const token = getCookie("access_token")
 
   //meta title
-  document.title = "Beykent | Admin Panel";
+  document.title = "Beykent | OBS";
 
   useEffect(() => {
   }, [])
