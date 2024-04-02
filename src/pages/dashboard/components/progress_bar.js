@@ -3,19 +3,13 @@ import {Col, Progress, Row} from "reactstrap";
 import PropTypes from "prop-types";
 import {withTranslation} from "react-i18next"
 import {withRouter} from "react-router-dom";
-import YellowElectro from "../../../assets/images/yellow-electro.svg"
 import Class from "../../../assets/icons/class.svg"
 import Folder from "../../../assets/icons/folder.svg"
 import Exam from "../../../assets/icons/exam.svg"
 import HomeWork from "../../../assets/icons/homework.svg"
 import ExampleData from "./example_data.json"
-const formatNumber = (number) => {
-    if (number === null || isNaN(number)) return '';
 
-    return Number(number).toLocaleString('en-US', {maximumFractionDigits: 3});
-};
 const ProgressBar = props => {
-    const {detail} = props
     return (
         <React.Fragment>
             <Row>
@@ -85,22 +79,21 @@ const ProgressBar = props => {
                                     </div>
                                 </div>
                                 <div className="d-flex" style={{gap: "1px"}}>
-                                    <div className="font-size-14 text-muted"
-                                         style={{position: "relative", bottom: "0.3rem"}}>
-                                        {props.t("Toplam Ders Sayısı")}
+                                    <div className="font-size-14 text-muted fw-semibold"
+                                         style={{position: "relative", bottom: "0.2rem"}}>
+                                        {props.t("Toplam İçerik Sayısı")}: {ExampleData.total_content}
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="mt-2">
                             <Progress
-                                value={22}
-                                max={33}
+                                value={ExampleData.completed_content}
+                                max={ExampleData.total_content}
                                 barClassName="bg-green"
-                                className=""
-                                size="sm"
+                                className="progress-lg"
                                 color="warning"
-                            />
+                            >{ExampleData.completed_content}</Progress>
                         </div>
                     </div>
                 </Col>
@@ -121,29 +114,28 @@ const ProgressBar = props => {
                                  style={{gap: "1rem"}}>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-16 text-muted">
-                                        {props.t("Sanal Sınıf")}
+                                        {props.t("Sınav")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
                                         %32
                                     </div>
                                 </div>
                                 <div className="d-flex" style={{gap: "1px"}}>
-                                    <div className="font-size-14 text-muted"
-                                         style={{position: "relative", bottom: "0.3rem"}}>
-                                        {props.t("Toplam Ders Sayısı")}
+                                    <div className="font-size-14 text-muted fw-semibold"
+                                         style={{position: "relative", bottom: "0.2rem"}}>
+                                        {props.t("Toplam Sınav Sayısı")}: {ExampleData.total_exam}
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="mt-2">
                             <Progress
-                                value={22}
-                                max={33}
+                                value={ExampleData.completed_exam}
+                                max={ExampleData.total_exam}
                                 barClassName="bg-green"
-                                className=""
-                                size="sm"
+                                className="progress-lg"
                                 color="danger"
-                            />
+                            >{ExampleData.completed_exam}</Progress>
                         </div>
                     </div>
                 </Col>
@@ -164,29 +156,28 @@ const ProgressBar = props => {
                                  style={{gap: "1rem"}}>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-16 text-muted">
-                                        {props.t("Sanal Sınıf")}
+                                        {props.t("Ödev Sınıf")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
                                         %32
                                     </div>
                                 </div>
                                 <div className="d-flex" style={{gap: "1px"}}>
-                                    <div className="font-size-14 text-muted"
-                                         style={{position: "relative", bottom: "0.3rem"}}>
-                                        {props.t("Toplam Ders Sayısı")}
+                                    <div className="font-size-14 text-muted fw-semibold"
+                                         style={{position: "relative", bottom: "0.2rem"}}>
+                                        {props.t("Toplam Ödev Sayısı")}: {ExampleData.total_home_work}
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="mt-2">
                             <Progress
-                                value={2}
-                                max={33}
+                                value={ExampleData.completed_home_work}
+                                max={ExampleData.total_home_work}
                                 barClassName="bg-green"
-                                className=""
-                                size="sm"
+                                className="progress-lg"
                                 color="success"
-                            />
+                            >{ExampleData.completed_home_work}</Progress>
                         </div>
                     </div>
                 </Col>

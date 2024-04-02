@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React from "react"
 import "devextreme/dist/css/dx.light.css"
 import PropTypes from "prop-types"
 import {withRouter} from "react-router-dom"
@@ -6,40 +6,51 @@ import {withTranslation} from "react-i18next"
 import {Container} from "reactstrap"
 import ProgressBar from "./components/progress_bar"
 import CustomBreadcrumbs from "../../components/breadcrumbs"
-import {getProgressBarData} from "../../services/dashboard/dashboardService"
+import EducationGrid from "./components/education_grid";
 
 const Dashboard = (props) => {
-    const [progressBarData, setProgressBarData] = useState({})
-
     return (
-      <React.Fragment>
-        <div className="page-content">
-            <Container fluid className="dash">
-                <div>
-                    <CustomBreadcrumbs/>
-                </div>
-                <div className="mt-3">
-                    <div className="d-flex p-3 align-items-center mb-2"
-                         style={{ backgroundColor: "#02203e", borderRadius: "6px 6px 0 0" }}>
-                        <div className="font-size-18 fw-500">
-                            <i className="mdi mdi-chart-bar me-3 text-white"></i>
-                           <span className="text-white">{props.t("Genel Özet")}</span>
-                            <a>
-                                <i className="bx bx-info-circle font-size-20 pointer ms-1 text-white"
-                                   style={{ verticalAlign: "middle" }} />
-                            </a>
+        <React.Fragment>
+            <div className="page-content">
+                <Container fluid className="dash">
+                    <div>
+                        <CustomBreadcrumbs/>
+                    </div>
+                    <div className="mt-3">
+                        <div className="d-flex p-3 align-items-center"
+                             style={{backgroundColor: "#02203e", borderRadius: "6px 6px 0 0"}}>
+                            <div className="font-size-18 fw-500">
+                                <i className="mdi mdi-chart-bar me-3 text-white"></i>
+                                <span className="text-white">{props.t("Genel Özet")}</span>
+                                <a>
+                                    <i className="bx bx-info-circle font-size-20 pointer ms-1 text-white"
+                                       style={{verticalAlign: "middle"}}/>
+                                </a>
+                            </div>
                         </div>
-
+                        <div>
+                            <ProgressBar/>
+                        </div>
                     </div>
-                    <ProgressBar detail={progressBarData}/>
-
-                    <div className="p-5">
-
+                    <div className="mt-3">
+                        <div className="d-flex p-3 align-items-center"
+                             style={{backgroundColor: "#02203e", borderRadius: "6px 6px 0 0"}}>
+                            <div className="font-size-18 fw-500">
+                                <i className="mdi mdi-chart-bar me-3 text-white"></i>
+                                <span className="text-white">{props.t("Ders Tablosu")}</span>
+                                <a>
+                                    <i className="bx bx-info-circle font-size-20 pointer ms-1 text-white"
+                                       style={{verticalAlign: "middle"}}/>
+                                </a>
+                            </div>
+                        </div>
+                        <div className="bg-white">
+                            <EducationGrid/>
+                        </div>
                     </div>
-                </div>
-            </Container>
-        </div>
-    </React.Fragment>)
+                </Container>
+            </div>
+        </React.Fragment>)
 }
 
 Dashboard.propTypes = {
@@ -48,5 +59,5 @@ Dashboard.propTypes = {
 }
 
 export default withRouter(
-  withTranslation()(Dashboard)
+    withTranslation()(Dashboard)
 )
