@@ -8,6 +8,7 @@ import Folder from "../../../assets/icons/folder.svg"
 import Exam from "../../../assets/icons/exam.svg"
 import HomeWork from "../../../assets/icons/homework.svg"
 import ExampleData from "./example_data.json"
+import {calculatePercent} from "../../../business/calculate_percent";
 
 const ProgressBar = props => {
     return (
@@ -33,7 +34,7 @@ const ProgressBar = props => {
                                         {props.t("Sanal Sınıf")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
-                                        %32
+                                        {calculatePercent(ExampleData.completed_class, ExampleData.total_class)}%
                                     </div>
                                 </div>
                                 <div className="d-flex" style={{gap: "1px"}}>
@@ -75,7 +76,7 @@ const ProgressBar = props => {
                                         {props.t("Sanal Sınıf")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
-                                        %32
+                                        {calculatePercent(ExampleData.completed_content,ExampleData.total_content)}%
                                     </div>
                                 </div>
                                 <div className="d-flex" style={{gap: "1px"}}>
@@ -117,7 +118,7 @@ const ProgressBar = props => {
                                         {props.t("Sınav")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
-                                        %32
+                                        {calculatePercent(ExampleData.completed_exam, ExampleData.total_exam)}%
                                     </div>
                                 </div>
                                 <div className="d-flex" style={{gap: "1px"}}>
@@ -159,7 +160,7 @@ const ProgressBar = props => {
                                         {props.t("Ödev Sınıf")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
-                                        %32
+                                        {calculatePercent(ExampleData.completed_home_work, ExampleData.total_home_work)}%
                                     </div>
                                 </div>
                                 <div className="d-flex" style={{gap: "1px"}}>
