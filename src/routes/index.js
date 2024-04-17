@@ -12,11 +12,14 @@ import Panel from "../pages/dashboard/index"
 // Utility
 import Pages404 from "../pages/Utility/pages-404";
 import AlertPage from "../pages/alarm"
+import ClassPage from "../pages/classes";
 
 
 const authProtectedRoutes = [
   { path: "/", component: Panel },
   { path: "/alarm", component: AlertPage },
+  { path: "/classes", component: ClassPage },
+
 
   //  Main
   { path: "/", exact: true, component: () => <Redirect to="/" /> },

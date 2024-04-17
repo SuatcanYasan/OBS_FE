@@ -14,7 +14,7 @@ axiosApi.interceptors.response.use(
 function setAccessToken() {
   const token = getCookie("access_token");
   if (token) {
-    axiosApi.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+    axiosApi.defaults.headers.common["token"] = token;
   }
 }
 
