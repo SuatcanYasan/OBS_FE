@@ -15,7 +15,6 @@ const ProfileMenu = props => {
   const _user = getUser();
   // const navigate = useHistory()
   const [menu, setMenu] = useState(false);
-  console.log(_user,"profile menu user")
   return (
       <React.Fragment>
         <Dropdown
