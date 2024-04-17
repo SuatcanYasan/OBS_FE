@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef} from "react"
+import React, {useCallback, useEffect, useRef, useState} from "react"
 import {Link, useLocation, withRouter} from "react-router-dom"
 import PropTypes from "prop-types";
 
@@ -11,8 +11,10 @@ import MetisMenu from "metismenujs";
 
 //i18n
 import {withTranslation} from "react-i18next";
+import {getAllClassesService} from "../../services/dashboard/dashboardService";
 
 const SidebarContent = props => {
+  const [allClasses, setAllClasses] = useState([])
   const ref = useRef();
   const {isVisible} = props;
   const activateParentDropdown = useCallback((item) => {
@@ -95,7 +97,6 @@ const SidebarContent = props => {
       }
     }
   };
-
   const path = useLocation();
   const activeMenu = useCallback(() => {
     const pathName = path.pathname;
@@ -137,7 +138,15 @@ const SidebarContent = props => {
       }
     }
   }
+  useEffect(() => {
+    getClassData()
+  }, []);
 
+  const getClassData = async () => {
+    const response = await getAllClassesService()
+    setAllClasses(response)
+  }
+  console.log(allClasses)
   return (
     <React.Fragment>
       <SimpleBar className="h-100" ref={ref}>
@@ -152,45 +161,24 @@ const SidebarContent = props => {
             </li>
             <li className="menu-title">{props.t("Applications")}</li>
             <li>
-              <Link to="/alarm">
+              <Link to="/" className="has-arrow">
                 <i className="bx bx-alarm"/>
-                <span>{props.t("Alarm")}</span>
+                <span>{props.t("Dersler")}</span>
               </Link>
+              <ul className="sub-menu">
+                {allClasses.map((item, index)=>{
+                  return (
+                      <li key={index}>
+                        <Link to={`/classes?id=${item.id}`}>{item.name}</Link>
+                      </li>
+                  )
+                })}
+              </ul>
             </li>
             <li>
               <Link to="/field-management">
                 <i className="bx bx-chat"></i>
                 <span>{props.t("Field Management")}</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/inverters">
-                <i className="bx bx-server"></i>
-                <span>{props.t("Inverters")}</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/transformer">
-                <i className="bx bx-bolt-circle"/>
-                <span>{props.t("Transformer Substation (I/O)")}</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/grid-values">
-                <i className="bx bx-store"></i>
-                <span>{props.t("Grid Values")}</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/compensation">
-              <i className="bx bx-calculator"></i>
-              <span>{props.t("Compensation")}</span>
-              </Link>
-            </li>
-            <li>
-              <Link to="/report">
-                <i className="bx bx-file"></i>
-                <span>{props.t("Report")}</span>
               </Link>
             </li>
           </ul>
