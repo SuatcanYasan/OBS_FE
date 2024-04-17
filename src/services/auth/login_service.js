@@ -10,7 +10,7 @@ export const loginUserService = async (user) => {
     };
     const response = await post(LOGIN_URL, body);
     if(response.status){
-        await setCookie("access_token", response.data.accessToken);
+        await setCookie("access_token", response.data.access_token);
         await setCookie("customer_type", response.data.id);
         await setCookie("role", response.data.role);
     }else{
