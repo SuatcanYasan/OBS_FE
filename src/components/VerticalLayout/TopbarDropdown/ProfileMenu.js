@@ -15,7 +15,7 @@ const ProfileMenu = props => {
   const _user = getUser();
   // const navigate = useHistory()
   const [menu, setMenu] = useState(false);
-
+  console.log(_user,"profile menu user")
   return (
       <React.Fragment>
         <Dropdown
@@ -33,7 +33,7 @@ const ProfileMenu = props => {
                 <i className="bx bxs-user font-size-24 align-middle me-1 bg-blue text-white p-1 rounded-2" />
               </div>
               <div>
-                <span className="d-none d-xl-inline-block ms-2 me-1">{_user?.firstname}</span>
+                <span className="d-none d-xl-inline-block ms-2 me-1">{_user?.name} {_user?.lastname}</span>
                 <i className="mdi mdi-chevron-down d-none d-xl-inline-block" />
               </div>
             </div>
