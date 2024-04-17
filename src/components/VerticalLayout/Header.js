@@ -8,7 +8,7 @@ import {Link} from "react-router-dom";
 // Import menuDropdown
 
 // import images
-import Logo from "../../assets/images/logo.webp";
+import Logo from "../../assets/images/logo-kucuk.png";
 //i18n
 import {withTranslation} from "react-i18next";
 
@@ -80,13 +80,7 @@ const Header = props => {
             <div className="navbar-brand-box d-lg-none d-md-block bg-white">
               <Link to="/" className="logo logo-dark">
                 <span className="logo-sm">
-                  <img src={Logo} alt="" height="22"/>
-                </span>
-              </Link>
-
-              <Link to="/" className="logo logo-light">
-                <span className="logo-sm">
-                  <img src={Logo} alt="" height="22"/>
+                  <img src={Logo} alt="" height="44"/>
                 </span>
               </Link>
             </div>
