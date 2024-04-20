@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react"
-import { Alert, Button, Card, CardBody, Col, Container, Form, FormFeedback, Input, Label, Row } from "reactstrap"
+import React, {useEffect, useState} from "react"
+import {Alert, Button, Card, CardBody, Col, Container, Form, FormFeedback, Input, Label, Row} from "reactstrap"
 
 // Formik Validation
 import * as Yup from "yup"
-import { useFormik } from "formik"
+import {useFormik} from "formik"
 
 //redux
-import { useDispatch, useSelector } from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 
-import { withRouter } from "react-router-dom"
+import {withRouter} from "react-router-dom"
 
 import avatar from "../../assets/images/users/avatar-1.jpg"
 // actions
-import { editProfile } from "../../store/actions"
+import {editProfile} from "../../store/actions"
 
 const UserProfile = () => {
 

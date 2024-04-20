@@ -1,9 +1,9 @@
 import PropTypes from "prop-types"
-import React, { useEffect } from "react"
-import { Col, Container, Row } from "reactstrap"
-import { useHistory, withRouter } from "react-router-dom"
+import React, {useEffect} from "react"
+import {Col, Container, Row} from "reactstrap"
+import {useHistory, withRouter} from "react-router-dom"
 import LoginCredential from "components/LoginCredential"
-import { getCookie } from "../../helpers/cookie_helper"
+import {getCookie} from "../../helpers/cookie_helper"
 
 const Login = props => {
   const navigate = useHistory();

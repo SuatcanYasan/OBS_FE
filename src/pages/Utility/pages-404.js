@@ -1,11 +1,11 @@
 import React from "react"
-import { Link, withRouter } from "react-router-dom"
-import { Col, Container, Row } from "reactstrap"
+import {Link, withRouter} from "react-router-dom"
+import {Col, Container, Row} from "reactstrap"
 
 //Import Images
 import error from "../../assets/images/404-image.png"
 import PropTypes from "prop-types"
-import { withTranslation } from "react-i18next"
+import {withTranslation} from "react-i18next"
 
 const Pages404 = (props) => {
     //meta title

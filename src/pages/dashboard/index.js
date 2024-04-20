@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React from "react"
 import "devextreme/dist/css/dx.light.css"
 import PropTypes from "prop-types"
 import {withRouter} from "react-router-dom"
@@ -6,11 +6,9 @@ import {withTranslation} from "react-i18next"
 import {Container} from "reactstrap"
 import ProgressBar from "./components/progress_bar"
 import CustomBreadcrumbs from "../../components/breadcrumbs"
-import {getProgressBarData} from "../../services/dashboard/dashboardService"
 import EducationGrid from "./components/education_grid";
 
 const Dashboard = (props) => {
-    const [progressBarData, setProgressBarData] = useState({})
 
     return (
       <React.Fragment>
@@ -32,7 +30,7 @@ const Dashboard = (props) => {
                         </div>
 
                     </div>
-                    <ProgressBar detail={progressBarData}/>
+                    <ProgressBar/>
                     <div className="d-flex p-3 align-items-center mb-2 mt-2"
                          style={{backgroundColor: "#02203e", borderRadius: "6px 6px 0 0"}}>
                         <div className="font-size-18 fw-500">
