@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import {Col, Progress, Row} from "reactstrap";
 import PropTypes from "prop-types";
 import {withTranslation} from "react-i18next"
@@ -7,10 +7,17 @@ import Class from "../../../assets/icons/class.svg"
 import Folder from "../../../assets/icons/folder.svg"
 import Exam from "../../../assets/icons/exam.svg"
 import HomeWork from "../../../assets/icons/homework.svg"
-import ExampleData from "./example_data.json"
 import {calculatePercent} from "../../../business/calculate_percent";
+import {getClassesStatusService} from "../../../services/dashboard/dashboardService";
 
 const ProgressBar = props => {
+    const [classesStatus, setClassesStatus] = useState({})
+    useEffect(() => {
+        getClassesStatusService().then(response => {
+            setClassesStatus(response)
+        })
+    }, []);
+    console.log(classesStatus)
     return (
         <React.Fragment>
             <Row>
@@ -27,32 +34,32 @@ const ProgressBar = props => {
                                     </span>
                                 </div>
                             </div>
-                            <div className="justify-content-center align-items-center w-100"
+                            <div className="justify-content-center align -items-center w-100"
                                  style={{gap: "1rem"}}>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-16 text-muted">
-                                        {props.t("Sanal Sınıf")}
+                                        {props.t("Sanal Sınıflar")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
-                                        {calculatePercent(ExampleData.completed_class, ExampleData.total_class)}%
+                                        {calculatePercent(classesStatus.completed_classes, classesStatus.total_classes)}%
                                     </div>
                                 </div>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-14 text-muted fw-semibold"
                                          style={{position: "relative", bottom: "0.2rem"}}>
-                                        {props.t("Toplam Ders Sayısı")}: {ExampleData.total_class}
+                                        {props.t("Toplam Ders Sayısı")}: {classesStatus.total_classes}
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="mt-2">
                             <Progress
-                                value={ExampleData.completed_class}
-                                max={ExampleData.total_class}
+                                value={classesStatus.completed_classes}
+                                max={classesStatus.total_classes}
                                 barClassName="bg-green"
                                 className="progress-lg"
                                 color="info"
-                            >{ExampleData.completed_class}</Progress>
+                            >{classesStatus.completed_classes}</Progress>
                         </div>
                     </div>
                 </Col>
@@ -73,28 +80,28 @@ const ProgressBar = props => {
                                  style={{gap: "1rem"}}>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-16 text-muted">
-                                        {props.t("Sanal Sınıf")}
+                                        {props.t("İçerikler")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
-                                        {calculatePercent(ExampleData.completed_content,ExampleData.total_content)}%
+                                        {calculatePercent(classesStatus.completed_contents,classesStatus.total_content)}%
                                     </div>
                                 </div>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-14 text-muted fw-semibold"
                                          style={{position: "relative", bottom: "0.2rem"}}>
-                                        {props.t("Toplam İçerik Sayısı")}: {ExampleData.total_content}
+                                        {props.t("Toplam İçerik Sayısı")}: {classesStatus.total_content}
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="mt-2">
                             <Progress
-                                value={ExampleData.completed_content}
-                                max={ExampleData.total_content}
+                                value={classesStatus.completed_contents}
+                                max={classesStatus.total_content}
                                 barClassName="bg-green"
                                 className="progress-lg"
                                 color="warning"
-                            >{ExampleData.completed_content}</Progress>
+                            >{classesStatus.completed_contents}</Progress>
                         </div>
                     </div>
                 </Col>
@@ -115,28 +122,28 @@ const ProgressBar = props => {
                                  style={{gap: "1rem"}}>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-16 text-muted">
-                                        {props.t("Sınav")}
+                                        {props.t("Sınavlar")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
-                                        {calculatePercent(ExampleData.completed_exam, ExampleData.total_exam)}%
+                                        {calculatePercent(classesStatus.completed_exams, classesStatus.total_exam)}%
                                     </div>
                                 </div>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-14 text-muted fw-semibold"
                                          style={{position: "relative", bottom: "0.2rem"}}>
-                                        {props.t("Toplam Sınav Sayısı")}: {ExampleData.total_exam}
+                                        {props.t("Toplam Sınav Sayısı")}: {classesStatus.total_exam}
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="mt-2">
                             <Progress
-                                value={ExampleData.completed_exam}
-                                max={ExampleData.total_exam}
+                                value={classesStatus.completed_exams}
+                                max={classesStatus.total_exam}
                                 barClassName="bg-green"
                                 className="progress-lg"
                                 color="danger"
-                            >{ExampleData.completed_exam}</Progress>
+                            >{classesStatus.completed_exams}</Progress>
                         </div>
                     </div>
                 </Col>
@@ -157,28 +164,28 @@ const ProgressBar = props => {
                                  style={{gap: "1rem"}}>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-16 text-muted">
-                                        {props.t("Ödev Sınıf")}
+                                        {props.t("Ödevler")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
-                                        {calculatePercent(ExampleData.completed_home_work, ExampleData.total_home_work)}%
+                                        {calculatePercent(classesStatus.completed_homework, classesStatus.total_homework)}%
                                     </div>
                                 </div>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-14 text-muted fw-semibold"
                                          style={{position: "relative", bottom: "0.2rem"}}>
-                                        {props.t("Toplam Ödev Sayısı")}: {ExampleData.total_home_work}
+                                        {props.t("Toplam Ödev Sayısı")}: {classesStatus.total_homework}
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="mt-2">
                             <Progress
-                                value={ExampleData.completed_home_work}
-                                max={ExampleData.total_home_work}
+                                value={classesStatus.completed_homework}
+                                max={classesStatus.total_homework}
                                 barClassName="bg-green"
                                 className="progress-lg"
                                 color="success"
-                            >{ExampleData.completed_home_work}</Progress>
+                            >{classesStatus.completed_homework}</Progress>
                         </div>
                     </div>
                 </Col>
