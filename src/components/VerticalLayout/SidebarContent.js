@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from "react"
+import React, {useCallback, useEffect, useRef} from "react"
 import {Link, useLocation, withRouter} from "react-router-dom"
 import PropTypes from "prop-types";
 
@@ -11,11 +11,15 @@ import MetisMenu from "metismenujs";
 
 //i18n
 import {withTranslation} from "react-i18next";
-import {getAllClassesService} from "../../services/dashboard/dashboardService";
+import {useDispatch, useSelector} from "react-redux";
+import {getClassesData} from "../../store/dashboard/actions";
 
 const SidebarContent = props => {
-  const [allClasses, setAllClasses] = useState([])
   const ref = useRef();
+  const dispatch = useDispatch()
+  const {classesData} = useSelector(state => ({
+    classesData: state.Dashboard.classesData,
+  }))
   const {isVisible} = props;
   const activateParentDropdown = useCallback((item) => {
     item.classList.add("active");
@@ -59,7 +63,6 @@ const SidebarContent = props => {
     for (var i = 0; i < items.length; ++i) {
       var item = items[i];
       const parent = items[i].parentElement;
-
       if (item && item.classList.contains("active")) {
         item.classList.remove("active");
       }
@@ -139,14 +142,9 @@ const SidebarContent = props => {
     }
   }
   useEffect(() => {
-    getClassData()
+    if(classesData.length > 0) return
+    dispatch(getClassesData())
   }, []);
-
-  const getClassData = async () => {
-    const response = await getAllClassesService()
-    setAllClasses(response)
-  }
-  console.log(allClasses)
   return (
     <React.Fragment>
       <SimpleBar className="h-100" ref={ref}>
@@ -166,7 +164,7 @@ const SidebarContent = props => {
                 <span>{props.t("Dersler")}</span>
               </Link>
               <ul className="sub-menu">
-                {allClasses.map((item, index)=>{
+                {classesData.map((item, index)=>{
                   return (
                       <li key={index}>
                         <Link to={`/classes?id=${item.id}`}>{item.name}</Link>
