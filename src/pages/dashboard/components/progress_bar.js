@@ -11,13 +11,15 @@ import {calculatePercent} from "../../../business/calculate_percent";
 import {getClassesStatusService} from "../../../services/dashboard/dashboardService";
 
 const ProgressBar = props => {
+    // soldaki değişken sağdaki ise soldaki değişene veriyi set eden yani değiştiren fonksiyon
     const [classesStatus, setClassesStatus] = useState({})
     useEffect(() => {
         getClassesStatusService().then(response => {
+            //buradaki response getClassStatusService fonksiyonundan dönen veri
+            //setClassesStatus fonksiyonu ise classesStatus değişkenine response değişkenini set eden fonksiyon
             setClassesStatus(response)
         })
     }, []);
-    console.log(classesStatus)
     return (
         <React.Fragment>
             <Row>
