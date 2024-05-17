@@ -1,6 +1,7 @@
 import React, {useCallback, useEffect, useRef} from "react"
 import {Link, useLocation, withRouter} from "react-router-dom"
 import PropTypes from "prop-types";
+import classnames from "classnames"
 
 
 // //Import Scrollbar
@@ -17,6 +18,8 @@ import {getClassesData} from "../../store/dashboard/actions";
 const SidebarContent = props => {
   const ref = useRef();
   const dispatch = useDispatch()
+  const location = useLocation();
+  let params = new URLSearchParams(location.search)
   const {classesData} = useSelector(state => ({
     classesData: state.Dashboard.classesData,
   }))
@@ -119,6 +122,11 @@ const SidebarContent = props => {
     }
   }, [path.pathname, activateParentDropdown]);
 
+  const classesClassnames = (item) => {
+    if(location.pathname !== "/classes") return "text-black"
+    return item.id == params.get("id") ? "text-primary" : "text-black"
+  }
+
   useEffect(() => {
     ref.current.recalculate();
   }, []);
@@ -127,12 +135,10 @@ const SidebarContent = props => {
     new MetisMenu("#side-menu");
     activeMenu();
   }, []);
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     activeMenu();
   }, [activeMenu]);
-
   function scrollElement(item) {
     if (item) {
       const currentPosition = item.offsetTop;
@@ -166,8 +172,9 @@ const SidebarContent = props => {
               <ul className="sub-menu">
                 {classesData.map((item, index)=>{
                   return (
+                      // className={`${classnames({ "currency-buttons": window.innerWidth <= 768 })} font-size-14`}
                       <li key={index}>
-                        <Link to={`/classes?id=${item.id}`}>{item.name}</Link>
+                        <Link className={`${classesClassnames(item)}`} to={`/classes?id=${item.id}`}>{item.name}</Link>
                       </li>
                   )
                 })}
