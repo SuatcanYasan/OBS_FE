@@ -79,11 +79,11 @@ const LoginCredential = (props) => {
                                             {error ? <Alert color="danger">{error}</Alert> : null}
 
                                             <div className="mb-3">
-                                                <Label className="">{props.t("ÖĞRENCİ NUMARASI")}</Label>
+                                                <Label className="">{props.t("Öğrenci Emaili")}</Label>
                                                 <Input
                                                     name="email"
                                                     className="form-control"
-                                                    placeholder={props.t("Öğrenci Numarası")}
+                                                    placeholder={props.t("Öğrenci Emaili")}
                                                     type="email"
                                                     onChange={validation.handleChange}
                                                     onBlur={validation.handleBlur}
