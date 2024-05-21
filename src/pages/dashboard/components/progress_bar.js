@@ -11,12 +11,9 @@ import {calculatePercent} from "../../../business/calculate_percent";
 import {getClassesStatusService} from "../../../services/dashboard/dashboardService";
 
 const ProgressBar = props => {
-    // soldaki değişken sağdaki ise soldaki değişene veriyi set eden yani değiştiren fonksiyon
     const [classesStatus, setClassesStatus] = useState({})
     useEffect(() => {
         getClassesStatusService().then(response => {
-            //buradaki response getClassStatusService fonksiyonundan dönen veri
-            //setClassesStatus fonksiyonu ise classesStatus değişkenine response değişkenini set eden fonksiyon
             setClassesStatus(response)
         })
     }, []);
@@ -40,7 +37,7 @@ const ProgressBar = props => {
                                  style={{gap: "1rem"}}>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-16 text-muted">
-                                        {props.t("Sanal Sınıflar")}
+                                        {props.t("Virtual Classes")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
                                         {calculatePercent(classesStatus.completed_classes, classesStatus.total_classes)}%
@@ -49,7 +46,7 @@ const ProgressBar = props => {
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-14 text-muted fw-semibold"
                                          style={{position: "relative", bottom: "0.2rem"}}>
-                                        {props.t("Toplam Ders Sayısı")}: {classesStatus.total_classes}
+                                        {props.t("Total Number of Courses")}: {classesStatus.total_classes}
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +79,7 @@ const ProgressBar = props => {
                                  style={{gap: "1rem"}}>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-16 text-muted">
-                                        {props.t("İçerikler")}
+                                        {props.t("Contents")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
                                         {calculatePercent(classesStatus.completed_contents,classesStatus.total_content)}%
@@ -91,7 +88,7 @@ const ProgressBar = props => {
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-14 text-muted fw-semibold"
                                          style={{position: "relative", bottom: "0.2rem"}}>
-                                        {props.t("Toplam İçerik Sayısı")}: {classesStatus.total_content}
+                                        {props.t("Total number of Contents")}: {classesStatus.total_content}
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +121,7 @@ const ProgressBar = props => {
                                  style={{gap: "1rem"}}>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-16 text-muted">
-                                        {props.t("Sınavlar")}
+                                        {props.t("Exams")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
                                         {calculatePercent(classesStatus.completed_exams, classesStatus.total_exam)}%
@@ -133,7 +130,7 @@ const ProgressBar = props => {
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-14 text-muted fw-semibold"
                                          style={{position: "relative", bottom: "0.2rem"}}>
-                                        {props.t("Toplam Sınav Sayısı")}: {classesStatus.total_exam}
+                                        {props.t("Total number of Exams")}: {classesStatus.total_exam}
                                     </div>
                                 </div>
                             </div>
@@ -166,7 +163,7 @@ const ProgressBar = props => {
                                  style={{gap: "1rem"}}>
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-16 text-muted">
-                                        {props.t("Ödevler")}
+                                        {props.t("Homework")}
                                     </div>
                                     <div className="ms-auto font-size-16 text-muted">
                                         {calculatePercent(classesStatus.completed_homework, classesStatus.total_homework)}%
@@ -175,7 +172,7 @@ const ProgressBar = props => {
                                 <div className="d-flex" style={{gap: "1px"}}>
                                     <div className="font-size-14 text-muted fw-semibold"
                                          style={{position: "relative", bottom: "0.2rem"}}>
-                                        {props.t("Toplam Ödev Sayısı")}: {classesStatus.total_homework}
+                                        {props.t("Total number of Homework")}: {classesStatus.total_homework}
                                     </div>
                                 </div>
                             </div>

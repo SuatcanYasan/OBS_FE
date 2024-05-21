@@ -22,7 +22,7 @@ const Dashboard = (props) => {
                          style={{backgroundColor: "#02203e", borderRadius: "6px 6px 0 0"}}>
                         <div className="font-size-18 fw-500">
                             <i className="mdi mdi-chart-bar me-3 text-white"></i>
-                            <span className="text-white">{props.t("Genel Özet")}</span>
+                            <span className="text-white">{props.t("General Summary")}</span>
                             <a>
                                 <i className="bx bx-info-circle font-size-20 pointer ms-1 text-white"
                                    style={{verticalAlign: "middle"}}/>
@@ -31,11 +31,11 @@ const Dashboard = (props) => {
 
                     </div>
                     <ProgressBar/>
-                    <div className="d-flex p-3 align-items-center mb-2 mt-2"
+                    <div className="d-flex p-3 align-items-center mt-2"
                          style={{backgroundColor: "#02203e", borderRadius: "6px 6px 0 0"}}>
                         <div className="font-size-18 fw-500">
                             <i className="mdi mdi-chart-bar me-3 text-white"></i>
-                            <span className="text-white">{props.t("Ders Listesi")}</span>
+                            <span className="text-white">{props.t("Course List")}</span>
                             <a>
                                 <i className="bx bx-info-circle font-size-20 pointer ms-1 text-white"
                                    style={{verticalAlign: "middle"}}/>

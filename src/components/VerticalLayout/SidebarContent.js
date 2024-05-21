@@ -167,7 +167,7 @@ const SidebarContent = props => {
             <li>
               <Link to="/" className="has-arrow">
                 <i className="bx bx-alarm"/>
-                <span>{props.t("Dersler")}</span>
+                <span>{props.t("Courses")}</span>
               </Link>
               <ul className="sub-menu">
                 {classesData.map((item, index)=>{
