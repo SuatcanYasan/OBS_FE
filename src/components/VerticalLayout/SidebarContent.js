@@ -180,12 +180,6 @@ const SidebarContent = props => {
                 })}
               </ul>
             </li>
-            <li>
-              <Link to="/field-management">
-                <i className="bx bx-chat"></i>
-                <span>{props.t("Field Management")}</span>
-              </Link>
-            </li>
           </ul>
         </div>
       </SimpleBar>
